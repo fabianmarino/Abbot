@@ -7,7 +7,7 @@
 
 <div id="instructionBox">	
 	<p id="intro">
-		La asociaci�n 
+		La asociaci�n 
 	</p>
 
 	<p id="instructionsText">
@@ -25,12 +25,23 @@
 
 <script type="text/template" id="loginTemplate"> 
 <div id="LoginView" class="pageView loginBackground">
-	<div id="clickExample">Selecciona</div>
+	<form id="formLogin">
+		<input type="email" id="text-username" placeholder="Usuario">
+		<input type="password" id="text-password" placeholder="Contraseña">
+		<div id="forgotPass">Olvidé mi contraseña</div>
+		<input type="submit" value="Entrar"/>
+	</form>
+	<div id="newUser">Usuario nuevo</div>
 </div>
 </script>
 
 <script type="text/template" id="forgotTemplate"> 
 <div id="ForgotView" class="pageView loginBackground">
+	<form id="formForgot">
+		<input type="email" id="text-email" placeholder="Correo electrónico">
+		<div id="backToLogin">Volver al inicio de sesión</div>
+		<input type="submit" value="Enviar"/>
+	</form>
 </div>
 </script>
 

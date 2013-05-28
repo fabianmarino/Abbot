@@ -42,6 +42,12 @@ _.extend(App, Backbone.Events, {
 
         /** This will hold all page/view html templates */
         this.templates = null;
+
+        /** This will hold the user id in order to make requests after login */
+        this.idUser = null;
+        
+        /** This will hold the user object info */
+        this.userInfo = {};
         
         // Init Templates
         this.initTemplates(callback);
