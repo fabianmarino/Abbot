@@ -1,50 +1,45 @@
-#homeEmpezar
-{
-position:relative;
-overflow:none;
-
-}
-#uplogo
-{
-		width:60%;		
-		margin-left:20%;
-        
-}
-#instructionBox
-{
-border:1px solid;
-border-radius:10px;
-width:75%;
-
-margin:3%;
-position:absolute;
-padding:2em;
+#homeEmpezar {
+	position: relative;
+	overflow: none;
 }
 
-#intro
-{
-color:#1c5666;
-font-size:1em;
-font-weight:bold-italic;
-font-family:Trebuchet;
-text-align:center;
-font-weight:cursive;
-font-style:cursive;
+#uplogo {
+	width: 60%;
+	margin-left: 20%;
 }
 
-.instructionsText
-{
-color:#02afee;
-font-size:1.3em;	
-font-family:Avenir;
-text-align:center;
-font-weight:bold; 
+#instructionBox {
+	-webkit-border-radius: 12px; 
+	border-radius: 12px;
+	width: 75%;
+	margin: 25% 3% 3% 3%;
+	position: absolute;
+	padding: 2em;
+	background-color:white;
 }
 
-#start
-{
+#intro {
+	color: #1c5666;
+	font-size: 0.7em;
+	font-weight: bold-italic;
+	font-family: Trebuchet;
+	text-align: center;
+	font-weight: cursive;
+	font-style: cursive;
+}
 
-height:8em;
-background: url(../img/empezar.png) no-repeat;
-background-size:100% 100%;
+.instructionsText {
+	color: #02afee;
+	font-size: 0.9em;
+	font-family: Avenir;
+	text-align: center;
+	font-weight: bold;
+	line-height:1;
+}
+
+#start {
+	height: 4.5em;
+	background-image: url(../img/empezar.png);
+	background-repeat: no-repeat;
+	background-size:100%;
 }

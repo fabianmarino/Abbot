@@ -12,15 +12,39 @@ MyBabyView = apps.ui.View.extend({
         this.delegateEvents();
 
         this.activated = false;
+        
+        this.stageMonths = this.$('#stageMonths');
+        this.babyName = this.$('#babyName');
     },
     
     events : {
-
+        'touchend #stageDevelopment' : 'onStageDevelopment',
+        'touchend #showAllTips' :   'onShowAllTips',
+        'touchend #showAllGalleries' : 'onShowAllGalleries',
+        'touchend #showAllEvents' : 'onShowAllEvents' 
     },
 
     activate : function() {
         if (this.activated == false) {
             this.activated = true;
         }
-    }
+        
+        this.babyName.text(App.userInfo.NombreBebe);
+    },
+    
+    onStageDevelopment : function(){
+      //TODO:  
+    },
+    
+    onShowAllTips : function(){
+        //TODO:  
+    },
+    
+    onShowAllGalleries : function(){
+        //TODO:  
+   },
+      
+   onShowAllEvents : function(){
+          //TODO:  
+   },
 });
