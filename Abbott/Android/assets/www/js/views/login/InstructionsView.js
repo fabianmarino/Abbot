@@ -15,7 +15,7 @@ InstructionsView = apps.ui.View.extend({
     },
     
     events : {
-        'touchend #homeEmpezar' : 'onHomeEmpezar'
+        'touchend #start' : 'onHomeEmpezar'
     },
 
     activate : function() {
@@ -25,6 +25,7 @@ InstructionsView = apps.ui.View.extend({
     },
     
     onHomeEmpezar : function(){
+        //TODO: Set flag so this view will only be displayed once
         this.parent.setView('login');
     }
 });

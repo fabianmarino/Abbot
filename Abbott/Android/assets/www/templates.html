@@ -4,6 +4,7 @@
 	<div id="homeEmpezar">
 <div id="instructionBox">	
 	<p id="intro">
+<<<<<<< HEAD
 		La Asociación Colombiana de Neonatologìa (A.S.C.O.N), pensado en los padres con bebés prematuros ha creado esta herramineta para acompañarte en esta linda etapa de tu vida
 	</p>	
 		<p class="instructionsText">Accede a información especializada sobre el desarrollo de tu bebé prematuro</p>
@@ -12,6 +13,20 @@
 
 	<div id="start">
           
+=======
+		La asociaciï¿½n 
+	</p>
+
+	<p id="instructionsText">
+		<span></span>
+		<span></span>
+		<span></span>
+	</p>
+
+	<img id="downlogo" src="start.png">
+	<p id="start">Empezar ></p>
+
+>>>>>>> fb91f253355c678e4fea8c6f0916cc48ff0e4104
 	</div>
 </div>
 </div>
@@ -20,12 +35,23 @@
 
 <script type="text/template" id="loginTemplate"> 
 <div id="LoginView" class="pageView loginBackground">
-	<div id="clickExample">Selecciona</div>
+	<form id="formLogin">
+		<input type="email" id="text-username" placeholder="Usuario">
+		<input type="password" id="text-password" placeholder="ContraseÃ±a">
+		<div id="forgotPass">OlvidÃ© mi contraseÃ±a</div>
+		<input type="submit" value="Entrar"/>
+	</form>
+	<div id="newUser">Usuario nuevo</div>
 </div>
 </script>
 
 <script type="text/template" id="forgotTemplate"> 
 <div id="ForgotView" class="pageView loginBackground">
+	<form id="formForgot">
+		<input type="email" id="text-email" placeholder="Correo electrÃ³nico">
+		<div id="backToLogin">Volver al inicio de sesiÃ³n</div>
+		<input type="submit" value="Enviar"/>
+	</form>
 </div>
 </script>
 

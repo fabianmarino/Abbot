@@ -26,9 +26,7 @@ _.extend(Server.prototype, Backbone.Events, {
             triggerUpdated = true;
         }
         var requestData = {};
-        requestData.idUser = App.id_User;
-        requestData.userToken = App.token;
-        requestData.method = method;
+        requestData.Action = method;
         _.extend(requestData, args);
         util.log(this.prefix, 'makeRequest: requestData: ' + JSON.stringify(requestData));
         
@@ -44,7 +42,7 @@ _.extend(Server.prototype, Backbone.Events, {
             success : _.bind(function(response) {
                 util.log(this.prefix, 'makeRequest() SUCCESS: response: ' + JSON.stringify(response));
                 App.serverError = false;
-                if (response.result.code == 0) {
+                /*if (response.result.code == 0) {
                     this.data = response.data;
                     // Important to call this before we call the callback
                     if (triggerUpdated) {
@@ -54,7 +52,7 @@ _.extend(Server.prototype, Backbone.Events, {
                 } else {
                     this.trigger('error', response);
                     // App.alert('Data server error.');
-                }
+                }*/
 
                 callback(response);
 
