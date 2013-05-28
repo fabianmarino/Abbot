@@ -1,14 +1,13 @@
 @font-face
 	{
 		font-family: "Trebuchet";
-		src: url('Trebuchet-MS.ttf');     
+		src: url('fonts/Trebuchet MS Italic.ttf');     
+		
 	}
 
 	
 @font-face
 	{		
 		font-family: "Avenir";
-		src: url("Avenir.ttf");
+		src: url('fonts/Avenir95Black.ttf');
 	}	
-
-	

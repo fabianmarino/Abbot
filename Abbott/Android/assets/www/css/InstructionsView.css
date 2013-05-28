@@ -1,16 +1,24 @@
+#homeEmpezar
+{
+position:relative;
+overflow:none;
+
+}
 #uplogo
 {
-		width:15%;
-		height:10%;
-		margin:0px 15px 35px 35px;	
-		display:block;
+		width:60%;		
+		margin-left:20%;
+        
 }
 #instructionBox
 {
 border:1px solid;
 border-radius:10px;
-width:300px;
-height:300px;
+width:75%;
+
+margin:3%;
+position:absolute;
+padding:2em;
 }
 
 #intro
@@ -19,24 +27,24 @@ color:#1c5666;
 font-size:1em;
 font-weight:bold-italic;
 font-family:Trebuchet;
+text-align:center;
+font-weight:cursive;
+font-style:cursive;
 }
 
-#instructionsText
+.instructionsText
 {
 color:#02afee;
 font-size:1.3em;	
 font-family:Avenir;
-}
-
-#downlogo
-{
-display:inline;
-width:50px;
-height:50px;
+text-align:center;
+font-weight:bold; 
 }
 
 #start
 {
-color:red;
-display:inline;
+
+height:8em;
+background: url(../img/empezar.png) no-repeat;
+background-size:100% 100%;
 }
