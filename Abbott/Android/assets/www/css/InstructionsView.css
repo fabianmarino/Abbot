@@ -9,9 +9,9 @@
 }
 
 #instructionBox {
-	-webkit-border-radius: 12px; 
-	border-radius: 15px;
+	-webkit-border-radius: 12px; 	
 	width: 75%;
+border-radius: 15px;
 	margin: 6%;
 	position: absolute;
 	padding: 2em;
