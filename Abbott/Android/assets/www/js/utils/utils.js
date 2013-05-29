@@ -97,6 +97,10 @@ util.convertirMes = function(mes){
         }
 };
 
+util.stripHtmlTags = function(string){
+  return  string.replace("&nbsp;", "").replace(/(<([^>]+)>)/ig,"");
+};
+
 var normalize = (function() {
     var from = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç",
     to   = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc",

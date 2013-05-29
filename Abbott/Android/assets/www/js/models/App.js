@@ -49,6 +49,12 @@ _.extend(App, Backbone.Events, {
         /** This will hold the user object info */
         this.userInfo = {};
         
+        /** This will hold the tips array info */
+        this.tipsArray = [];
+        
+        /** This will hold the galleries array object info */
+        this.galleriesObject = {};
+        
         // Init Templates
         this.initTemplates(callback);
     },
