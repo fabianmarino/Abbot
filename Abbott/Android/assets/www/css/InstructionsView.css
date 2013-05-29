@@ -15,9 +15,9 @@
 	margin: 6%;
 	position: absolute;
 	padding: 2em;
-    height:250%;
+    height:305%;
 	background-color:white;
-    overflow-y:scroll;
+    
 }
 
 #intro {
@@ -46,14 +46,14 @@
 	background-size:100%;
 }
 
-@media only screen and (min-height:350px) and (max-height:500px) {
+@media only screen and (min-height:300px) and (max-height:400px) {
 	.instructionsText {
 		line-height:0em;
-	}
-	
-	
+	},
+		
 	#instructionBox {
 		height:100%;
+	overflow:scroll;	
 	}
 	
 }
