@@ -9,20 +9,18 @@
 }
 
 #instructionBox {
-	-webkit-border-radius: 12px; 	
-	width: 75%;
-border-radius: 15px;
-	margin: 6%;
-	position: absolute;
+	-webkit-border-radius: 15px; 	
+	width: 70%;
+	border-radius: 15px;
+	margin:6% auto;
 	padding: 2em;
-    height:305%;
 	background-color:white;
     
 }
 
 #intro {
 	color: #1c5666;
-	font-size: 0.9em;
+	font-size: 0.7em;
 	font-weight: bold-italic;
 	font-family: TrebuchetBold;
 	text-align: center;	
@@ -30,32 +28,20 @@ border-radius: 15px;
 
 .instructionsText {
 	color: #02afee;
-    line-height:1.4em;
+    line-height:1;
     padding-left:0.5em;
     padding-right:0.5em;
-	font-size: 1.2em;
+	font-size: 0.7em;
 	font-family: Avenir;
 	text-align: center;
 	font-weight: bold;
 }
 
 #start {
-	height: 6em;
+	height: 4.5em;
 	background-image: url(../img/empezar.png);
 	background-repeat: no-repeat;
 	background-size:100%;
-}
-
-@media only screen and (min-height:300px) and (max-height:400px) {
-	.instructionsText {
-		line-height:0em;
-	},
-		
-	#instructionBox {
-		height:100%;
-	overflow:scroll;	
-	}
-	
 }
 	
 

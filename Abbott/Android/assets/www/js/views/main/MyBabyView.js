@@ -17,7 +17,7 @@ MyBabyView = apps.ui.View.extend({
         this.babyName = this.$('#babyName');
         this.dayTipText = this.$('#dayTipText');
         this.dayTipImg = this.$('#dayTipImg');
-        //TODO: REMOVE THESE LINES WHEN CSS IS WORKING
+        //TODO: REMOVE THESE LINES WHEN CSS IS COMPLETE
         this.dayTipImg.css({ 'width' : '100px', 'height': '100px'}); 
     },
     
@@ -32,11 +32,6 @@ MyBabyView = apps.ui.View.extend({
         if (this.activated == false) {
             //Get baby Stage Service
             App.server.makeRequest('Etapa', { IDUsuario : App.idUser, FechaNacimiento : App.userInfo.FechaNacimiento}, _.bind(this.onGetStage, this));
-            //Get Tips Service
-            App.server.makeRequest('Tip', { }, _.bind(this.onGetTips, this));
-            
-            //Get Galleries Service
-            App.server.makeRequest('Galeria', { IDUsuario : App.idUser }, _.bind(this.onGetGalleries, this));
             this.activated = true;
         }
         
@@ -54,6 +49,9 @@ MyBabyView = apps.ui.View.extend({
             App.alert(responseObject.Repuesta);
         }
         
+        //Get Tips Service
+        App.server.makeRequest('Tip', { }, _.bind(this.onGetTips, this));
+        
     },
     
     onGetTips : function(response){
@@ -62,6 +60,8 @@ MyBabyView = apps.ui.View.extend({
         var responseObject = response.tip[0];
         this.dayTipText.text(util.stripHtmlTags(responseObject.Cuerpo));
         this.dayTipImg.css( {'background-image' : 'url('+ responseObject.Foto + ')'});
+        //Get Galleries Service
+        App.server.makeRequest('Galeria', { IDUsuario : App.idUser }, _.bind(this.onGetGalleries, this));
     },
     
     onGetGalleries : function(response){
@@ -79,7 +79,7 @@ MyBabyView = apps.ui.View.extend({
     },
     
     loadGalleries: function(){
-        this.containerGalleries.empty();
+        /*this.containerGalleries.empty();
         var html='';
         
         for(var i = 0; i < App.galleriesObject.length; i++){
@@ -93,7 +93,7 @@ MyBabyView = apps.ui.View.extend({
             html+=$(rowEvent.el).html();
         }
         this.containerEvents.html(html);
-        this.eventsScroll.refresh();
+        this.eventsScroll.refresh();*/
     },
     
     
