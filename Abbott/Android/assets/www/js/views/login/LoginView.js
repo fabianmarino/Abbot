@@ -27,6 +27,11 @@ LoginView = apps.ui.View.extend({
         if (this.activated == false) {
             this.activated = true;
         }
+        
+        if(App.config.testing.active == true){
+            this.textUsername.val(App.config.testing.user);
+            this.textPassword.val(App.config.testing.password);
+        }
     },
     
     onNewUser : function(){

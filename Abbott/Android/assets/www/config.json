@@ -8,9 +8,11 @@
 	"ApiEndPoint" : "http://201.184.47.251/Abbott/webservice-login/",
 	"requestType" : "post",
 	"testing": {
-		"active": false,
+		"active": true,
 		"online": true,
-		"wifi": false
+		"wifi": false,
+		"user" : "usernameTest",
+		"password" : "hzWO&@8V0J"
 	},
 	"appTitle" : "Abbott",
 	"preloader": {

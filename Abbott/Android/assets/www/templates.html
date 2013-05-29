@@ -54,11 +54,47 @@
 
 <script type="text/template" id="RegisterProfileTemplate"> 
 <div id="RegisterProfileView" class="pageView">
+	<form id="formRegister">
+		<input type="text" id="text-father" placeholder="Nombre del padre">*
+		<input type="text" id="text-mother" placeholder="Nombre de la madre">*
+		<input type="text" id="text-baby" placeholder="Nombre del bebé">*
+		Género del bebé 
+		<input type="radio" name="babySex" value="M">Niño<br>
+		<input type="radio" name="babySex" value="F">Niña*
+		<input type="date" id="text-borndate" placeholder="Día /Mes /Año">*
+		<input type="text" id="text-bornplace" placeholder="Lugar de nacimiento">*
+		<input type="text" id="text-clinic" placeholder="Clínica">
+		<input type="text" id="text-doctor" placeholder="Nombre del pediatra">
+		<input type="email" id="text-email" placeholder="Su correo electrónico">*
+		<input type="tel" id="text-phone" placeholder="Su teléfono">
+		<input type="text" id="text-username" placeholder="Ingrese un nombre de usuario">*
+		<input type="password" id="text-password" placeholder="Ingrese una contraseña">
+		<input type="password" id="text-confirmpassword" placeholder="Confirme su contraseña">
+		<input type="checkbox" name="acceptTerms" value="S"> Acepto <div id="goTerms">términos y condiciones</div>
+		<input type="checkbox" name="acceptInfo" value="S"> Deseo recibir información del programa en mi correo electrónico
+		<input type="submit" value="Registro"/>
+	</form>
 </div>
 </script>
 
 <script type="text/template" id="EditProfileTemplate"> 
 <div id="EditProfileView" class="pageView">
+	<form id="formEdit">
+		<input type="text" id="text-father" placeholder="Nombre del padre">*
+		<input type="text" id="text-mother" placeholder="Nombre de la madre">*
+		<input type="text" id="text-baby" placeholder="Nombre del bebé">*
+		Género del bebé 
+		<input type="radio" name="babySex" value="M">Niño<br>
+		<input type="radio" name="babySex" value="F">Niña*
+		<input type="date" id="text-borndate" placeholder="Día /Mes /Año">*
+		<input type="text" id="text-bornplace" placeholder="Lugar de nacimiento">*
+		<input type="text" id="text-clinic" placeholder="Clínica">
+		<input type="text" id="text-doctor" placeholder="Nombre del pediatra">
+		<input type="email" id="text-email" placeholder="Su correo electrónico">*
+		<input type="tel" id="text-phone" placeholder="Su teléfono">
+		<input type="checkbox" name="acceptInfo" value="S"> Deseo recibir información del programa en mi correo electrónico
+		<input type="submit" value="Actualizar"/>
+	</form>
 </div>
 </script>
 
