@@ -4,41 +4,43 @@
 }
 
 #uplogo {
-	width: 60%;
-	margin-left: 20%;
+	width: 55%;
+	margin-left: 24%;
 }
 
 #instructionBox {
 	-webkit-border-radius: 12px; 
-	border-radius: 12px;
+	border-radius: 15px;
 	width: 75%;
-	margin: 25% 3% 3% 3%;
+	margin: 6%;
 	position: absolute;
 	padding: 2em;
+    height:450px;
 	background-color:white;
 }
 
 #intro {
 	color: #1c5666;
-	font-size: 0.7em;
+	font-size: 1em;
 	font-weight: bold-italic;
-	font-family: Trebuchet;
-	text-align: center;
-	font-weight: cursive;
-	font-style: cursive;
+	font-family: TrebuchetBold;
+	text-align: center;	
 }
 
 .instructionsText {
 	color: #02afee;
-	font-size: 0.9em;
+    line-height:1.4em;
+    padding-left:0.5em;
+    padding-right:0.5em;
+	font-size: 1.2em;
 	font-family: Avenir;
 	text-align: center;
 	font-weight: bold;
-	line-height:1;
+	
 }
 
 #start {
-	height: 4.5em;
+	height: 6em;
 	background-image: url(../img/empezar.png);
 	background-repeat: no-repeat;
 	background-size:100%;
