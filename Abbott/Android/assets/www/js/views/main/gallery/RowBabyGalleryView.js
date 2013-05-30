@@ -14,12 +14,15 @@ RowBabyGalleryView = apps.ui.View.extend({
         this.el = $($('#rowBabyGalleryTemplate', App.templates).html());
 
         this.delegateEvents();
-
+        
+        this.$('#babyGalleryImg').css({'width':'100px', 'height':'100px'});
         this.render();
     },
 
     render : function(){
-        this.$('#babyGalleryImg').css({'backgorund-image' : 'url(' + this.photoGallery + ')'});
+        if(this.photoGallery){
+            this.$('#babyGalleryImg').css({'background-image' : 'url(' + this.photoGallery + ')'});
+        }
         this.$('#babyGalleryDate').text(this.dateGallery);
         this.$('#babyGalleryTitle').text(this.nameGallery);
         this.$('#babyGallery').attr('onClick', 'App.pages.views.content.contentManager.views.mybaby.nextView('+this.idGallery+');');

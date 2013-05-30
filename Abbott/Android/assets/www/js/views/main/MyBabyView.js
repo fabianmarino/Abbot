@@ -70,10 +70,7 @@ MyBabyView = apps.ui.View.extend({
         util.log(this.prefix + ' GET GALLERIES RESPONSE: ' + JSON.stringify(response));
         var responseObject = response.galeria[0];
         if(responseObject.Mensaje == 'Successfully'){
-             App.galleriesObject = responseObject;
-             /*this.$('#babyGalleryImg').css( {'background-image' : 'url('+ responseObject.fotogaleria[0].Foto + ')', 'width' : '100px', 'height': '100px'});
-             this.$('#babyGalleryDate').text(responseObject.Fecha);
-             this.$('#babyGalleryTitle').text(responseObject.Nombre);*/
+             App.galleriesObject = response.galeria;
              this.loadGalleries();
         }
         else{
@@ -81,21 +78,22 @@ MyBabyView = apps.ui.View.extend({
         }
     },
     
-    loadGalleries: function(){
-        this.containerGalleries.empty();
-        var html='';
-        /*$.each(App.galleriesObject, function(i, item) {
-            App.alert(item.IDGaleria);
-        });*/​
-        for(var i = 0; i < App.galleriesObject.length; i++){
-            var gallery = App.galleriesObject[i];
-            var idGallery=gallery.IDGaleria;
-            var nameGallery= gallery.Nombre;
-            var dateGallery=gallery.Fecha;
-            var photoGallery=gallery.fotogaleria[0].Foto;
-            var rowGallery = new RowBabyGalleryView({ idGallery : idGallery, nameGallery: nameGallery, dateGallery: dateGallery, photoGallery: photoGallery});
-            html+=$(rowGallery.el).html();
-        }
+    loadGalleries : function(){
+       //this.containerGalleries.empty();​
+        var html = "";
+        $.each(App.galleriesObject, function( key, value ) {
+                util.log("GALLERY: " , value.IDGaleria);
+                var idGallery=value.IDGaleria;
+                var nameGallery= value.Nombre;
+                var dateGallery=value.Fecha;
+                var photoGallery="";
+                $.each(value.fotogaleria, function( index, obj ) {
+                    photoGallery = obj.Foto;
+                    return false;
+                });
+                var rowGallery = new RowBabyGalleryView({ idGallery : idGallery, nameGallery: nameGallery, dateGallery: dateGallery, photoGallery: photoGallery});
+                html+=$(rowGallery.el).html();
+        });
         this.containerGalleries.html(html);
         //this.galleryScroll.refresh();
     },
