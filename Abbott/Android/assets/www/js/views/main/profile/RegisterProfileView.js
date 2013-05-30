@@ -11,13 +11,15 @@ RegisterProfileView = apps.ui.View.extend({
         this.parent = options.parent;
         this.delegateEvents();
 
+        this.isConnecting = false;
         this.activated = false;
+        
         
         this.father= this.$('#text-father');
         this.mother= this.$('#text-mother');
         this.baby= this.$('#text.baby');
         this.babysex= this.$('#babysex');
-        this.borndate= this('#text-borndate')
+        this.borndate= this('#text-borndate');
         this.bornplace= this('"text-bornplace');
         this.clinic=this('#text-clinic');
         this.doctor=this('#text-doctor');
@@ -75,8 +77,8 @@ RegisterProfileView = apps.ui.View.extend({
         var acceptTerms= this.acceptTerms.val();
         var acceptInfo= this.acceptInfo.val();
         
-        if(!father || !mother || !baby || !babysex || !borndate || !bornplace || !clinic || !doctor || !email || !phone || !username || !password || !confirmpassword || !acceptTerms || !acceptInfo){
-        	App.alert('Por favor complete todos los campos.');
+        if(!father || !mother || !baby || !babysex || !borndate || !bornplace || !phone || !username || !password || !confirmpassword){
+        	App.alert('Por favor complete todos los campos obligatorios.');
             return false;
         }
         
@@ -87,8 +89,7 @@ RegisterProfileView = apps.ui.View.extend({
     	var responseObject= response.register[0];
     	
     	   if(responseObject.Mensaje == 'Successfully'){
-               App.idUser = responseObject.IDUsuario;
-               App.idUser = responseObject.IDUsuario;
+               App.idUser = responseObject.IDUsuario;               
                App.userInfo = responseObject;
                userInfo.text-username;
                this.parent.setView('content');
