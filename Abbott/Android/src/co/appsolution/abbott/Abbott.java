@@ -19,8 +19,12 @@
 
 package co.appsolution.abbott;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+
 import org.apache.cordova.*;
+import org.apache.cordova.api.CordovaPlugin;
 
 public class Abbott extends DroidGap
 {
@@ -28,9 +32,40 @@ public class Abbott extends DroidGap
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        super.setIntegerProperty("loadUrlTimeoutValue", 60000); // timeout
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")
+    }
+    
+    @Override
+    protected void onResume() {
+       Log.v("APP", "onResume");
+       super.onResume();
+    }
+
+    @Override
+    protected void onActivityResult(int reqCode, int resCode, Intent intent) {
+       try {
+          CordovaPlugin callback = this.activityResultCallback;
+          //callback is 03-05 12:22:46.469: V/APP(29747): callback: org.apache.cordova.CameraLauncher@42606760 when is ok
+          if (intent != null) {
+             Log.v("APP", "INTENT: " + intent);
+             if (intent.getData() != null) {
+                Log.v("APP", "INTENT DATA: " + intent.getData());
+                if (callback != null) {
+                   super.onActivityResult(reqCode, resCode, intent);
+                }
+                else{
+                   //TODO: Find a solution when callback is null
+                   return;
+                }
+             }
+          }
+          super.onActivityResult(reqCode, resCode, intent);
+       } catch (Error e) {
+          e.printStackTrace();
+       }
     }
 }
 

@@ -53,7 +53,7 @@ _.extend(App, Backbone.Events, {
         this.tipsArray = [];
         
         /** This will hold the galleries array object info */
-        this.galleriesObject = {};
+        this.galleriesObject = [];
         
         // Init Templates
         this.initTemplates(callback);

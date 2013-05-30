@@ -17,6 +17,8 @@ MyBabyView = apps.ui.View.extend({
         this.babyName = this.$('#babyName');
         this.dayTipText = this.$('#dayTipText');
         this.dayTipImg = this.$('#dayTipImg');
+        this.containerGalleries = this.$('#scrollGallery');
+        
         //TODO: REMOVE THESE LINES WHEN CSS IS COMPLETE
         this.dayTipImg.css({ 'width' : '100px', 'height': '100px'}); 
     },
@@ -69,9 +71,10 @@ MyBabyView = apps.ui.View.extend({
         var responseObject = response.galeria[0];
         if(responseObject.Mensaje == 'Successfully'){
              App.galleriesObject = responseObject;
-             this.$('#babyGalleryImg').css( {'background-image' : 'url('+ responseObject.fotogaleria[0].Foto + ')', 'width' : '100px', 'height': '100px'});
+             /*this.$('#babyGalleryImg').css( {'background-image' : 'url('+ responseObject.fotogaleria[0].Foto + ')', 'width' : '100px', 'height': '100px'});
              this.$('#babyGalleryDate').text(responseObject.Fecha);
-             this.$('#babyGalleryTitle').text(responseObject.Nombre);
+             this.$('#babyGalleryTitle').text(responseObject.Nombre);*/
+             this.loadGalleries();
         }
         else{
             App.alert(responseObject.Repuesta);
@@ -79,23 +82,51 @@ MyBabyView = apps.ui.View.extend({
     },
     
     loadGalleries: function(){
-        /*this.containerGalleries.empty();
+        this.containerGalleries.empty();
         var html='';
-        
+        /*$.each(App.galleriesObject, function(i, item) {
+            App.alert(item.IDGaleria);
+        });*/​
         for(var i = 0; i < App.galleriesObject.length; i++){
-            var idEvent=App.galleriesObject[i].idGaleria;
-            var dayEvent=this.events[i].eventStartDate.substring(8,10);
-            var monthEvent=this.events[i].eventStartDate.substring(5,7);
-            var nameEvent=this.events[i].eventName;
-            var descEvent=this.events[i].eventDescription;
-            var rowEvent = new RowEventView({idEvent:idEvent,dayEvent:dayEvent,monthEvent:monthEvent,
-                nameEvent:nameEvent,descEvent:descEvent});
-            html+=$(rowEvent.el).html();
+            var gallery = App.galleriesObject[i];
+            var idGallery=gallery.IDGaleria;
+            var nameGallery= gallery.Nombre;
+            var dateGallery=gallery.Fecha;
+            var photoGallery=gallery.fotogaleria[0].Foto;
+            var rowGallery = new RowBabyGalleryView({ idGallery : idGallery, nameGallery: nameGallery, dateGallery: dateGallery, photoGallery: photoGallery});
+            html+=$(rowGallery.el).html();
         }
-        this.containerEvents.html(html);
-        this.eventsScroll.refresh();*/
+        this.containerGalleries.html(html);
+        //this.galleryScroll.refresh();
     },
     
+    /* Called when a row is clicked in the scrolling list
+     * @param event
+     */
+    nextView: function(id) {
+        util.log(this.prefix, ' nextView: id: ' + id);
+        this.selectRow(id);
+        /* We don't want to do anything if the list is being scrolled
+        var moving = this.scrollerMoving();
+        util.log(this.prefix, ' nextView: moving: ' + moving);
+        if (!moving) {
+            this.selectRow(id);
+        }*/
+    },
+    
+    
+    /**
+     * Selects a row programatically
+     * @param row
+     */
+    selectRow: function(id) {
+        util.log(this.prefix, ' selectRow: id: ' + id);
+        var galleryId = (id) ? id : null;
+        util.log(this.prefix, ' galleryId: ' + galleryId);
+        if(galleryId){
+            this.parent.setView('photodetail', { galleryId: galleryId, editMode : false});
+        }
+    },
     
     onStageDevelopment : function(){
       //TODO:  
@@ -115,5 +146,5 @@ MyBabyView = apps.ui.View.extend({
    onShowAllEvents : function(){
           //TODO: 
        this.parent.setView('calendar');
-   },
+   }
 });

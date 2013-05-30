@@ -15,19 +15,19 @@ RegisterProfileView = apps.ui.View.extend({
         
         this.father= this.$('#text-father');
         this.mother= this.$('#text-mother');
-        this.baby= this.$('#text.baby');
+        this.baby= this.$('#text-baby');
         this.babysex= this.$('#babysex');
-        this.borndate= this('#text-borndate')
-        this.bornplace= this('"text-bornplace');
-        this.clinic=this('#text-clinic');
-        this.doctor=this('#text-doctor');
-        this.email= this('#text-email');
-        this.phone=this('#text-phone');
-        this.username=this('#text-username');
-        this.password=this('#text-password');
-        this.confirmpassword= this('#text-confirmpassword');
-        this.acceptTerms= this('#acceptTerms');
-        this.acceptInfo= this('#acceptInfo');                	
+        this.borndate= this.$('#text-borndate')
+        this.bornplace= this.$('#text-bornplace');
+        this.clinic=this.$('#text-clinic');
+        this.doctor=this.$('#text-doctor');
+        this.email= this.$('#text-email');
+        this.phone=this.$('#text-phone');
+        this.username=this.$('#text-username');
+        this.password=this.$('#text-password');
+        this.confirmpassword= this.$('#text-confirmpassword');
+        this.acceptTerms= this.$('#acceptTerms');
+        this.acceptInfo= this.$('#acceptInfo');                	
     },
     
     events : {
@@ -40,19 +40,19 @@ RegisterProfileView = apps.ui.View.extend({
         }
         
         if(App.config.testing.active == true){
-            this.father.val(App.config.testing.text-father);
-            this.mother.val(App.config.testing.text-mother);
-            this.baby.val(App.config.testing.text-baby);
-            this.babysex.val(App.config.testing.text-babysex);
-            this.borndate.val(App.config.testing.text-borndate);
-            this.bornplace.val(App.config.testing.text-bornplace);
-            this.clinic.val(App.config.testing.text-clinic);
-            this.doctor.val(App.config.testing.text-doctor);
-            this.email.val(App.config.testing.text-email);
-            this.phone.val(App.config.testing.text-phone);
-            this.username.val(App.config.testing.text-username);
-            this.password.val(App.config.testing.text-password);
-            this.confirmpassword.val(App.config.testing.text-confirmpassword);
+            this.father.val(App.config.testing.textfather);
+            this.mother.val(App.config.testing.textmother);
+            this.baby.val(App.config.testing.textbaby);
+            this.babysex.val(App.config.testing.textbabysex);
+            this.borndate.val(App.config.testing.textborndate);
+            this.bornplace.val(App.config.testing.textbornplace);
+            this.clinic.val(App.config.testing.textclinic);
+            this.doctor.val(App.config.testing.textdoctor);
+            this.email.val(App.config.testing.textemail);
+            this.phone.val(App.config.testing.textphone);
+            this.username.val(App.config.testing.textusername);
+            this.password.val(App.config.testing.textpassword);
+            this.confirmpassword.val(App.config.testing.textconfirmpassword);
             this.acceptTerms.val(App.config.testing.acceptTerms);
             this.acceptInfo.val(App.config.testing.acceptInfo);                       
         }
