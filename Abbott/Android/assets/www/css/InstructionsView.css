@@ -9,18 +9,10 @@
 }
 
 #instructionBox {
-<<<<<<< HEAD
-	-webkit-border-radius: 12px; 	
-	width: 75%;
-    border-radius: 15px;
-	margin: 6%;
-	position: absolute;
-=======
 	-webkit-border-radius: 15px; 	
 	width: 70%;
 	border-radius: 15px;
 	margin:6% auto;
->>>>>>> 5c0eda21ccb0fac3b39ff2b493aad0101e4af8da
 	padding: 2em;
 	background-color:white;
     
@@ -50,23 +42,4 @@
 	background-image: url(../img/empezar.png);
 	background-repeat: no-repeat;
 	background-size:100%;
-<<<<<<< HEAD
 }
-
-@media only screen and (min-height:300px) and (max-height:400px) {
-	.instructionsText {
-		line-height:0em;
-	}
-		
-	#instructionBox {
-		height:100%;
-	overflow:scroll;	
-	}
-	
-}
-	
-
-	
-=======
-}
->>>>>>> 5c0eda21ccb0fac3b39ff2b493aad0101e4af8da
