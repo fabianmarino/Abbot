@@ -85,7 +85,9 @@ MyBabyView = apps.ui.View.extend({
         var responseObject = response.evento[0];
         if(responseObject.Mensaje == 'Successfully'){
             App.eventsObject = response.evento;
-            //TODO: display calendar in my baby view
+            //TODO: display calendar in my baby view 
+            //Esperando respuesta con respecto al json que devuelve el servicio
+            /*{"evento":[{"Nombre":"szxczxc","Nota":"zxczxc","Fecha":"2013-06-4","IDUsuario":"458","Hora":"01:30:00","Lugar":"zxczx","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"},{"Nombre":"evento6","Nota":"asdasd","Fecha":"2013-05-31","IDUsuario":"458","Hora":"12:30:00","Lugar":"evet","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"},{"Nombre":"evento5","Nota":"asdas","Fecha":"2013-06-13","IDUsuario":"458","Hora":"09:30:00","Lugar":"asd","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"},{"Nombre":"evento4","Nota":"asdas","Fecha":"2013-05-31","IDUsuario":"458","Hora":"09:00:00","Lugar":"asd","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"},{"Nombre":"evento2","Nota":"fasdas","Fecha":"2013-05-30","IDUsuario":"458","Hora":"09:00:00","Lugar":"tfff","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"}]}*/
         }
         else{
             App.alert(responseObject.Repuesta);

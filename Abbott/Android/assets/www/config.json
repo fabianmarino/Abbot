@@ -6,6 +6,7 @@
 	},
 	"templates": "templates.html",
 	"ApiEndPoint" : "http://201.184.47.251/Abbott/webservice-login/",
+	"ApiEndPoint2" : "http://201.184.47.251/Abbott/webservice-cargar-datos/",
 	"requestType" : "post",
 	"testing": {
 		"active": true,

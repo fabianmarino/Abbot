@@ -169,16 +169,30 @@
 
 <script type="text/template" id="GalleryTemplate"> 
 <div id="GalleryView" class="pageView">
+	<div id="createGallery">Crear galeria</div>
 </div>
 </script>
 
 <script type="text/template" id="CreateGalleryTemplate"> 
 <div id="CreateGalleryView" class="pageView">
+	<form id="formCreateGallery">
+		Nombre de la galería
+		<input type="text" id="text-galleryname" placeholder="Fotos de mi bebé">* 
+		Descripción
+		<textarea rows="4" cols="50" placeholder="Escribe algo acerca de la colección de fotos" id="text-gallerydesc">
+		</textarea>
+		<input type="submit" value="Crear galería"/>
+	</form>
 </div>
 </script>
 
 <script type="text/template" id="EditGalleryTemplate"> 
 <div id="EditGalleryView" class="pageView">
+</div>
+</script>
+
+<script type="text/template" id="DetailGalleryTemplate"> 
+<div id="DetailGalleryView" class="pageView">
 </div>
 </script>
 

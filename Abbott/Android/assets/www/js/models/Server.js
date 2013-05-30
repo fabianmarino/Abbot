@@ -11,6 +11,7 @@ _.extend(Server.prototype, Backbone.Events, {
 
         // Must supply a host for the url of the server and a token for a secure connection
         this.host = options.host;
+        this.host2 = options.host2;
 
         this.data = null;
     },
@@ -19,9 +20,10 @@ _.extend(Server.prototype, Backbone.Events, {
         return '[Server]';
     },
 
-    makeRequest : function(method, args, callback, triggerUpdated) {
+    makeRequest : function(method, args, callback, secondHost, triggerUpdated) {
         util.log(this.prefix, "METHOD: " + method);
-
+        var host = (secondHost == true) ? this.host2 : this.host;
+        
         if (triggerUpdated == undefined) {
             triggerUpdated = true;
         }
@@ -34,7 +36,7 @@ _.extend(Server.prototype, Backbone.Events, {
         
         $.ajax({
             type : App.config.requestType,
-            url : this.host,
+            url : host,
             data : requestData,
             dataType : 'json',
             timeout : 15000,

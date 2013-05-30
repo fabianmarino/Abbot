@@ -21,6 +21,7 @@ ContentManager = apps.ui.ViewManager.extend({
                 stagedetail:           new StageDetailView({parent:this,backButton:true,title:'Detalle etapas',months:false,icon:false, menuButton:false, secondButton:false}),           
                 tips:                  new TipsView({parent:this,backButton:true,title:'Tips',months:false,icon:false, menuButton:false, secondButton:false}),
                 gallery:               new GalleryView({parent:this,backButton:false,title:'Diario',months:false,icon:"icon_create_gallery.png", menuButton:false, secondButton:"creategallery"}),
+                detailgallery:         new DetailGalleryView({parent:this,backButton:true,title:'Galería de fotos',months:false,icon:"icon_add_photos.png", menuButton:false, secondButton:"addphotos"}),            
                 creategallery:         new CreateGalleryView({parent:this,backButton:true,title:'Crear una galería',months:false,icon:false, menuButton:false, secondButton:false}),
                 editgallery:           new EditGalleryView({parent:this,backButton:true,title:'Editar',months:false,icon:false, menuButton:false, secondButton:false}),
                 photodetail:           new PhotoDetailView({parent:this,backButton:true,title:'(1 de 5)',months:false,icon:"icon_garbage.png", menuButton:false, secondButton:"deletegallery"}),
