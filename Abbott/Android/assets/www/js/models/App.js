@@ -109,7 +109,7 @@ _.extend(App, Backbone.Events, {
 
     onBackButton : function() {
         util.log(this.prefix, '!!!! onBackButton() !!!! blockReturn: ' + this.blockReturn);
-        if(this.blockReturn == true){
+        if(this.blockReturn == true && this.serverError == false){
             return;
         }
         var handled = false;
