@@ -76,7 +76,21 @@ MyBabyView = apps.ui.View.extend({
         else{
             App.alert(responseObject.Repuesta);
         }
+        //Get events service
+        App.server.makeRequest('Evento', { IDUsuario : App.idUser}, _.bind(this.onGetEvents, this));
     },
+    
+    onGetEvents : function(response){
+        util.log(this.prefix + ' GET EVENTS RESPONSE: ' + JSON.stringify(response));
+        var responseObject = response.evento[0];
+        if(responseObject.Mensaje == 'Successfully'){
+            App.eventsObject = response.evento;
+            //TODO: display calendar in my baby view
+        }
+        else{
+            App.alert(responseObject.Repuesta);
+        }
+    },  
     
     loadGalleries : function(){
        //this.containerGalleries.empty();​

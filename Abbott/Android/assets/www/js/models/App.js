@@ -55,6 +55,9 @@ _.extend(App, Backbone.Events, {
         /** This will hold the galleries array object info */
         this.galleriesObject = {};
         
+        /** This will hold the events array object info */
+        this.eventsObject = {};
+        
         // Init Templates
         this.initTemplates(callback);
     },
