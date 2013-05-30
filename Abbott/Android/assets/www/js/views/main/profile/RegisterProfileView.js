@@ -80,7 +80,7 @@ RegisterProfileView = apps.ui.View.extend({
             return false;
         }
         
-        App.server.makeRequest('Registro', { NombrePadre : user, NombreMadre : pass NombreBebe: baby, Genero: babysex, FechaNacimiento: borndate, LugarNacimiento:bornplace, Clinica: clinic, NombrePediatra:doctor, Telefono:phone, password: password, TerminosCondiciones: acceptTerms, RecibeInformacion: acceptInfo }, _.bind(this.onRegisterUser, this));
+        App.server.makeRequest('Registro', { NombrePadre : user, NombreMadre : pass, NombreBebe: baby, Genero: babysex, FechaNacimiento: borndate, LugarNacimiento:bornplace, Clinica: clinic, NombrePediatra:doctor, Telefono:phone, password: password, TerminosCondiciones: acceptTerms, RecibeInformacion: acceptInfo }, _.bind(this.onRegisterUser, this));
     },
     
     onRegisterUser: function(){
