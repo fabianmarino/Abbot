@@ -12,7 +12,8 @@
 		"online": true,
 		"wifi": false,
 		"user" : "usernameTest",
-		"password" : "hzWO&@8V0J",			
+		"password" : "hzWO&@8V0J",	
+		
 		"text-father": "carlos",
 		"text-mother": "maria",
          "text-baby": "juan",
@@ -21,13 +22,13 @@
 	        "text-bornplace": "Tunja",
 	        "text-clinic": "Hospital A",
 	        "text-doctor":"Mario",
-             "text-email": "carlos@gmail.com",
+             "text-email": "",
              "text-phone": "7405060",
-	         "text-username":"carlos",
+	         "text-username":"",
 	         "text-password":"1234",
 	         "text-confirmpassword": "1234",
-	         "acceptTerms": "N",
-	         "acceptInfo":"N"  
+	         "acceptTerms": "S",
+	         "acceptInfo":"S"  
 	},
 	"appTitle" : "Abbott",
 	"preloader": {
