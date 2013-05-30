@@ -19,7 +19,7 @@ _.extend(Server.prototype, Backbone.Events, {
         return '[Server]';
     },
 
-    makeRequest : function(method, args, callback, triggerUpdated) {
+    makeRequest : function(method, args, callback, triggerUpdated, true) {
         util.log(this.prefix, "METHOD: " + method);
 
         if (triggerUpdated == undefined) {

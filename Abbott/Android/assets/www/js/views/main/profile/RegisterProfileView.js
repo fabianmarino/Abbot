@@ -17,10 +17,10 @@ RegisterProfileView = apps.ui.View.extend({
         
         this.father= this.$('#text-father');
         this.mother= this.$('#text-mother');
-        this.baby= this.$('#text.baby');
+        this.baby= this.$('#text-baby');
         this.babysex= this.$('#babysex');
         this.borndate= this('#text-borndate');
-        this.bornplace= this('"text-bornplace');
+        this.bornplace= this('#text-bornplace');
         this.clinic=this('#text-clinic');
         this.doctor=this('#text-doctor');
         this.email= this('#text-email');
@@ -58,7 +58,7 @@ RegisterProfileView = apps.ui.View.extend({
             this.acceptTerms.val(App.config.testing.acceptTerms);
             this.acceptInfo.val(App.config.testing.acceptInfo);                       
         }
-    }
+    },
     
     onSubmitRegister: function(){
     	var father = this.father.val();
@@ -85,7 +85,7 @@ RegisterProfileView = apps.ui.View.extend({
         App.server.makeRequest('Registro', { NombrePadre : user, NombreMadre : pass, NombreBebe: baby, Genero: babysex, FechaNacimiento: borndate, LugarNacimiento:bornplace, Clinica: clinic, NombrePediatra:doctor, Telefono:phone, password: password, TerminosCondiciones: acceptTerms, RecibeInformacion: acceptInfo }, _.bind(this.onRegisterUser, this));
     },
     
-    onRegisterUser: function(){
+    onRegisterUser: function(response){
     	var responseObject= response.register[0];
     	
     	   if(responseObject.Mensaje == 'Successfully'){
