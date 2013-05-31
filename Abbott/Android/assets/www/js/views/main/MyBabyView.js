@@ -17,6 +17,8 @@ MyBabyView = apps.ui.View.extend({
         this.babyName = this.$('#babyName');
         this.dayTipText = this.$('#dayTipText');
         this.dayTipImg = this.$('#dayTipImg');
+        this.containerGalleries = this.$('#scrollGallery');
+        
         //TODO: REMOVE THESE LINES WHEN CSS IS COMPLETE
         this.dayTipImg.css({ 'width' : '100px', 'height': '100px'}); 
     },
@@ -68,34 +70,77 @@ MyBabyView = apps.ui.View.extend({
         util.log(this.prefix + ' GET GALLERIES RESPONSE: ' + JSON.stringify(response));
         var responseObject = response.galeria[0];
         if(responseObject.Mensaje == 'Successfully'){
-             App.galleriesObject = responseObject;
-             this.$('#babyGalleryImg').css( {'background-image' : 'url('+ responseObject.fotogaleria[0].Foto + ')', 'width' : '100px', 'height': '100px'});
-             this.$('#babyGalleryDate').text(responseObject.Fecha);
-             this.$('#babyGalleryTitle').text(responseObject.Nombre);
+             App.galleriesObject = response.galeria;
+             this.loadGalleries();
         }
         else{
             App.alert(responseObject.Repuesta);
         }
+        //Get events service
+        App.server.makeRequest('Evento', { IDUsuario : App.idUser}, _.bind(this.onGetEvents, this));
     },
     
-    loadGalleries: function(){
-        /*this.containerGalleries.empty();
-        var html='';
-        
-        for(var i = 0; i < App.galleriesObject.length; i++){
-            var idEvent=App.galleriesObject[i].idGaleria;
-            var dayEvent=this.events[i].eventStartDate.substring(8,10);
-            var monthEvent=this.events[i].eventStartDate.substring(5,7);
-            var nameEvent=this.events[i].eventName;
-            var descEvent=this.events[i].eventDescription;
-            var rowEvent = new RowEventView({idEvent:idEvent,dayEvent:dayEvent,monthEvent:monthEvent,
-                nameEvent:nameEvent,descEvent:descEvent});
-            html+=$(rowEvent.el).html();
+    onGetEvents : function(response){
+        util.log(this.prefix + ' GET EVENTS RESPONSE: ' + JSON.stringify(response));
+        var responseObject = response.evento[0];
+        if(responseObject.Mensaje == 'Successfully'){
+            App.eventsObject = response.evento;
+            //TODO: display calendar in my baby view 
+            //Esperando respuesta con respecto al json que devuelve el servicio
+            /*{"evento":[{"Nombre":"szxczxc","Nota":"zxczxc","Fecha":"2013-06-4","IDUsuario":"458","Hora":"01:30:00","Lugar":"zxczx","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"},{"Nombre":"evento6","Nota":"asdasd","Fecha":"2013-05-31","IDUsuario":"458","Hora":"12:30:00","Lugar":"evet","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"},{"Nombre":"evento5","Nota":"asdas","Fecha":"2013-06-13","IDUsuario":"458","Hora":"09:30:00","Lugar":"asd","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"},{"Nombre":"evento4","Nota":"asdas","Fecha":"2013-05-31","IDUsuario":"458","Hora":"09:00:00","Lugar":"asd","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"},{"Nombre":"evento2","Nota":"fasdas","Fecha":"2013-05-30","IDUsuario":"458","Hora":"09:00:00","Lugar":"tfff","FechaRecordatorio":"","HoraRecordatorio":"","Repuesta":"Consulta de Eventos exitosa","Mensaje":"Successfully"}]}*/
         }
-        this.containerEvents.html(html);
-        this.eventsScroll.refresh();*/
+        else{
+            App.alert(responseObject.Repuesta);
+        }
+    },  
+    
+    loadGalleries : function(){
+       //this.containerGalleries.empty();​
+        var html = "";
+        $.each(App.galleriesObject, function( key, value ) {
+                util.log("GALLERY: " , value.IDGaleria);
+                var idGallery=value.IDGaleria;
+                var nameGallery= value.Nombre;
+                var dateGallery=value.Fecha;
+                var photoGallery="";
+                $.each(value.fotogaleria, function( index, obj ) {
+                    photoGallery = obj.Foto;
+                    return false;
+                });
+                var rowGallery = new RowBabyGalleryView({ idGallery : idGallery, nameGallery: nameGallery, dateGallery: dateGallery, photoGallery: photoGallery});
+                html+=$(rowGallery.el).html();
+        });
+        this.containerGalleries.html(html);
+        //this.galleryScroll.refresh();
     },
     
+    /* Called when a row is clicked in the scrolling list
+     * @param event
+     */
+    nextView: function(id) {
+        util.log(this.prefix, ' nextView: id: ' + id);
+        this.selectRow(id);
+        /* We don't want to do anything if the list is being scrolled
+        var moving = this.scrollerMoving();
+        util.log(this.prefix, ' nextView: moving: ' + moving);
+        if (!moving) {
+            this.selectRow(id);
+        }*/
+    },
+    
+    
+    /**
+     * Selects a row programatically
+     * @param row
+     */
+    selectRow: function(id) {
+        util.log(this.prefix, ' selectRow: id: ' + id);
+        var galleryId = (id) ? id : null;
+        util.log(this.prefix, ' galleryId: ' + galleryId);
+        if(galleryId){
+            this.parent.setView('photodetail', { galleryId: galleryId, editMode : false});
+        }
+    },
     
     onStageDevelopment : function(){
       //TODO:  
@@ -115,5 +160,5 @@ MyBabyView = apps.ui.View.extend({
    onShowAllEvents : function(){
           //TODO: 
        this.parent.setView('calendar');
-   },
+   }
 });

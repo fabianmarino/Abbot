@@ -55,6 +55,9 @@ _.extend(App, Backbone.Events, {
         /** This will hold the galleries array object info */
         this.galleriesObject = {};
         
+        /** This will hold the events array object info */
+        this.eventsObject = {};
+        
         // Init Templates
         this.initTemplates(callback);
     },
@@ -91,7 +94,7 @@ _.extend(App, Backbone.Events, {
         this.pages = new MainPageManager();
         
         //Initializes the Server Object
-        this.server = new Server({host:App.config.ApiEndPoint});
+        this.server = new Server({host:App.config.ApiEndPoint, host2: App.config.ApiEndPoint2});
         
         //TODO: Display instructions the first time user installs the app only.
         this.pages.setView('instructions');

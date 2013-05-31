@@ -1,12 +1,12 @@
-GalleryView = apps.ui.View.extend({
+DetailGalleryView = apps.ui.View.extend({
 
     initialize : function(options) {
         apps.ui.View.prototype.initialize.call(this, options);
 
-        this.prefix = 'GalleryView';
+        this.prefix = 'DetailGalleryView';
         util.log(this.prefix, 'initialize()');
 
-        this.el = $($('#GalleryTemplate', App.templates).html());
+        this.el = $($('#DetailGalleryTemplate', App.templates).html());
 
         this.parent = options.parent;
         this.delegateEvents();
@@ -15,16 +15,12 @@ GalleryView = apps.ui.View.extend({
     },
     
     events : {
-        'touchend #createGallery' : 'onCreateGallery'
+
     },
 
     activate : function() {
         if (this.activated == false) {
             this.activated = true;
         }
-    },
-    
-    onCreateGallery : function(){
-        this.parent.setView('creategallery');
     }
 });
