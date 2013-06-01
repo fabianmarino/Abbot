@@ -34,7 +34,7 @@ LoginView = apps.ui.View.extend({
         }
     },
     
-    onNewUser : function(){
+    onNewUser : function(){    	
         this.parent.setView('content');
         this.parent.views.content.contentManager.setView('registerprofile');
     },

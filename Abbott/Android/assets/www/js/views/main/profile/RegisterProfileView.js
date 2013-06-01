@@ -11,12 +11,27 @@ RegisterProfileView = apps.ui.View.extend({
         this.parent = options.parent;
         this.delegateEvents();
 
+        this.isConnecting = false;
         this.activated = false;
+        
         
         this.father= this.$('#text-father');
         this.mother= this.$('#text-mother');
         this.baby= this.$('#text-baby');
         this.babysex= this.$('#babysex');
+<<<<<<< HEAD
+        this.borndate= this('#text-borndate');
+        this.bornplace= this('#text-bornplace');
+        this.clinic=this('#text-clinic');
+        this.doctor=this('#text-doctor');
+        this.email= this('#text-email');
+        this.phone=this('#text-phone');
+        this.username=this('#text-username');
+        this.password=this('#text-password');
+        this.confirmpassword= this('#text-confirmpassword');
+        this.acceptTerms= this('#acceptTerms');
+        this.acceptInfo= this('#acceptInfo');                	
+=======
         this.borndate= this.$('#text-borndate')
         this.bornplace= this.$('#text-bornplace');
         this.clinic=this.$('#text-clinic');
@@ -28,6 +43,7 @@ RegisterProfileView = apps.ui.View.extend({
         this.confirmpassword= this.$('#text-confirmpassword');
         this.acceptTerms= this.$('#acceptTerms');
         this.acceptInfo= this.$('#acceptInfo');                	
+>>>>>>> a3d6ec2178452f51a85417da11e173d3ade4e94a
     },
     
     events : {
@@ -75,19 +91,27 @@ RegisterProfileView = apps.ui.View.extend({
         var acceptTerms= this.acceptTerms.val();
         var acceptInfo= this.acceptInfo.val();
         
-        if(!father || !mother || !baby || !babysex || !borndate || !bornplace || !clinic || !doctor || !email || !phone || !username || !password || !confirmpassword || !acceptTerms || !acceptInfo){
-        	App.alert('Por favor complete todos los campos.');
+        if(!father || !mother || !baby || !babysex || !borndate || !bornplace || !phone || !username || !password || !confirmpassword){
+        	App.alert('Por favor complete todos los campos obligatorios.');
             return false;
         }
         
+<<<<<<< HEAD
+        App.server.makeRequest('Registro', { NombrePadre : user, NombreMadre : pass, NombreBebe: baby, Genero: babysex, FechaNacimiento: borndate, LugarNacimiento:bornplace, Clinica: clinic, NombrePediatra:doctor, Telefono:phone, password: password, TerminosCondiciones: acceptTerms, RecibeInformacion: acceptInfo }, _.bind(this.onRegisterUser, this));
+=======
         App.server.makeRequest('Registro', { NombrePadre : father, NombreMadre : mother, NombreBebe: baby, Genero: babysex, FechaNacimiento: borndate, LugarNacimiento:bornplace, Clinica: clinic, NombrePediatra:doctor, Telefono:phone, password: password, TerminosCondiciones: acceptTerms, RecibeInformacion: acceptInfo }, _.bind(this.onRegisterUser, this));
+>>>>>>> a3d6ec2178452f51a85417da11e173d3ade4e94a
     },
     
-    onRegisterUser: function(){
+    onRegisterUser: function(response){
     	var responseObject= response.register[0];
     	
     	   if(responseObject.Mensaje == 'Successfully'){
+<<<<<<< HEAD
+               App.idUser = responseObject.IDUsuario;               
+=======
                App.idUser = responseObject.IDUsuario;
+>>>>>>> a3d6ec2178452f51a85417da11e173d3ade4e94a
                App.userInfo = responseObject;
                //userInfo.text-username;
                this.parent.setView('content');
