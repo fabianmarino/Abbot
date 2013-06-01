@@ -27,7 +27,8 @@ MyBabyView = apps.ui.View.extend({
         'touchend #stageDevelopment' : 'onStageDevelopment',
         'touchend #showAllTips' :   'onShowAllTips',
         'touchend #showAllGalleries' : 'onShowAllGalleries',
-        'touchend #showAllEvents' : 'onShowAllEvents' 
+        'touchend #showAllEvents' : 'onShowAllEvents',
+        'touchend #buttonEditProfile' : 'viewEditProfile'
     },
 
     activate : function() {
@@ -160,5 +161,9 @@ MyBabyView = apps.ui.View.extend({
    onShowAllEvents : function(){
           //TODO: 
        this.parent.setView('calendar');
+   },
+
+   viewEditProfile : function(){
+        this.parent.setView('editprofile',{id:47});
    }
 });

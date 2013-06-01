@@ -16,7 +16,7 @@ ContentManager = apps.ui.ViewManager.extend({
                 mybaby:                new MyBabyView({parent:this,backButton:false,title:'Mi bebé',months:false,icon:"icon_settings.png", menuButton:true, secondButton: 'editprofile'}),
                 registerprofile:       new RegisterProfileView({parent:this,backButton:true,title:'Usuario Nuevo',months:false,icon:false, menuButton:false, secondButton:false}),
                 terms:                 new TermsView({parent:this,backButton:true,title:'Términos y condiciones',months:false,icon:false, menuButton:false, secondButton:false}),
-                editprofile:           new TermsView({parent:this,backButton:true,title:'Editar perfil',months:false,icon:false, menuButton:false, secondButton:false}),
+                editprofile:           new EditProfileView({parent:this,backButton:true,title:'Editar perfil',months:false,icon:false, menuButton:false, secondButton:false}),
                 stages:                new StagesView({parent:this,backButton:false,title:'Etapas de desarrollo',months:true,icon:"arrow_up.png", menuButton:true, secondButton:false}),
                 stagedetail:           new StageDetailView({parent:this,backButton:true,title:'Detalle etapas',months:false,icon:false, menuButton:false, secondButton:false}),           
                 tips:                  new TipsView({parent:this,backButton:true,title:'Tips',months:false,icon:false, menuButton:false, secondButton:false}),
